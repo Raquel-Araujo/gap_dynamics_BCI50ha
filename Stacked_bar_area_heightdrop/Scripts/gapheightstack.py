@@ -50,15 +50,25 @@ freq.to_csv('../Exit/pivot_table.csv')
 freq1 = (freq/len(dropnegsel))*100
 freq1.reset_index(inplace=True)
 
+# color=['gainsboro', 'silver', 'dimgrey', 'k']
 
 plt.figure(figsize=(4, 3))
 plt.rc('font', family='Times New Roman', size=12)
 
-freq1.plot(x='classearea', kind='bar', stacked=True, color=['gainsboro', 'silver', 'dimgrey', 'k'], align='edge', rot=0, width=1.0,
+freq1.plot(x='classearea', kind='bar', stacked=True, color=['xkcd:cobalt', 'steelblue', 'khaki', 'indianred'], align='edge', rot=0, width=1.0,
             figsize=(4, 3), fontsize=12)
 plt.xlabel(r'Canopy disturbance area (m$^{2}$)', labelpad=10)
 plt.ylabel('Frequency (%)', labelpad=10, fontsize=12)
-plt.legend(['0-2 m', '2-5 m', '5-10 m', '>10 m'], title="Height drop", fontsize=10)
+
+labels = ['0-2 m', '2-5 m', '5-10 m', '>10 m']
+plt.legend(labels, title="Height drop", fontsize=10)
+
+plt.legend(reversed(plt.legend().legendHandles), reversed(labels))
+
+# handles, labels = ax.get_legend_handles_labels()
+# ax.legend(reversed(handles), reversed(labels), title='Line', loc='upper left')
+# # plt.legend(['>10 m','5-10 m','2-5 m','0-2 m'], title="Height drop", fontsize=10)
+
 plt.yticks([0,10,20,30,40], [0,10,20,30,40], fontsize=12)
 plt.xticks([0,1,2,3,4,5,6,7],['2','5','10','20','50','100', '200', '500'], fontsize=12)
 
@@ -68,56 +78,3 @@ plt.close()
 
 
 
-# # print(width)
-
-# ###Plot log scale
-# plt.figure(figsize=(4, 3))
-# plt.rc('font', family='Times New Roman', size=12)
-
-# # Heights of bars1 + bars2
-# bars = np.add(freq1['0'], freq1['2']).tolist()
-# five = freq1['5'].tolist()
-# bars1 = np.add(bars, five)
-# # print(bars)
-# # print(bars1)
-
-# ###Plot x axis log scale
-# plt.figure(figsize=(4, 3))
-# plt.rc('font', family='Times New Roman', size=12)
-
-# # Heights of bars1 + bars2
-# bars = np.add(freq1['0'], freq1['2']).tolist()
-# five = freq1['5'].tolist()
-# bars1 = np.add(bars, five)
-# # print(bars)
-# # print(bars1)
-
-# width = 1.0
-
-# print(np.array((freq1.classearea), dtype=str))
-
-
-
-# # Create brown bars
-# plt.bar(np.array((freq1.classearea), dtype=str), freq1['0'], color = 'white', edgecolor='k', width=width,align='edge', label='0-2 m')
-# # Create green bars (middle), on top of the first ones
-# plt.bar(np.array((freq1.classearea), dtype=str), freq1['2'], bottom=freq1['0'], color='lightgray', edgecolor='k', width=width, align='edge', label='2-5 m')
-# # Create green bars (top)
-# plt.bar(np.array((freq1.classearea), dtype=str), freq1['5'], bottom=bars, color='darkgray', edgecolor='k', width=width, align='edge', label='5-10 m')
-# plt.bar(np.array((freq1.classearea), dtype=str), freq1['>10'], bottom=bars1, color='k', edgecolor='k', width=width, align='edge', label='>10 m')
-
-# # plt.xscale('log')
-# # plt.yscale('log')
-
-# plt.xlabel(r'Canopy disturbance area (m$^{2}$)', labelpad=10)
-# plt.ylabel('Frequency (%)', labelpad=10)
-
-# # plt.xticks([2,5,10,20,50,100,200,500], [2,5,10,20,50,100,200,500])
-# # plt.yticks([1,10,100], [1,10,100])
-# plt.minorticks_off()
-
-# plt.legend(title="Height drop", loc='upper left', prop={'size': 8})
-
-# plt.savefig('../Exit/stackbar_area_heightdrop1_logx.png', dpi=300, bbox_inches='tight')
-
-# plt.close()

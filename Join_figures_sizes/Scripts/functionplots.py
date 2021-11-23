@@ -29,7 +29,7 @@ mpimg.imread('../Entrance/stackbar_area_heightdrop.png'),
 # mpimg.imread('../Exit/gap_number_Branchfall_bars.png'),
 # mpimg.imread('../Exit/gap_number_Treefall_bars.png'),
 ]
-abcd = ["a", "c" , "b" ,"d"]
+abcd = ["(a)", "(c)" , "(b)" ,"(d)"]
 # abcd = ["(a)", "(b)", "(c)"]
 
 fig = plt.figure(figsize=(6.5, 5.4))

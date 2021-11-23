@@ -39,10 +39,10 @@ plt.figure(figsize=(4, 3))
 plt.rc('font', family='Times New Roman', size=12)
 
 
-plt.plot(x,coletorarea, "k" , label = "Area", linewidth=0.8)
-plt.plot(x,coletornum, "grey" , label = "Number", linewidth=0.8)
+plt.plot(x,coletorarea, "royalblue" , label = "Area", linewidth=0.8)
+plt.plot(x,coletornum, "tomato" , label = "Number", linewidth=0.8)
 plt.xscale('log')
-plt.legend()
+plt.legend(loc='lower right')
 
 plt.xticks([2,5,10,20,50,100,200,500],[2,5,10,20,50,100,200,500])
 plt.ylabel('Cumulative distribution (%)', labelpad=10)

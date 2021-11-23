@@ -123,13 +123,17 @@ while i < len(valores):
 ########################################################################################################
 ##Plot SI2
 
-listacolor = ['Greys' ,'Blues', 'Reds']
+# listacolor = ['Greys' ,'Blues', 'Reds']
+listacolor = ['Set1', 'Set1', 'Set1']
 
 colorcoletor = []
 for c in listacolor:
 
     cmap = plt.cm.get_cmap(c)
-    rgba = cmap([0.5, 0.6, 0.7, 0.8])
+    # rgba = cmap([0.5, 0.6, 0.7, 0.8])
+    rgba = cmap([0.1, 0.2, 0.4, 0.5])
+
+
     colorcoletor.append(rgba)
 
 
@@ -250,18 +254,20 @@ while i < len(valores):
     plt.loglog()
     plt.ylim(0.00001,1.1)
     plt.xlim(1.7,600)
-    plt.legend(loc='best')
+    plt.legend(loc='lower right')
     plt.xlabel(r'Canopy disturbance area (m$^{2}$)', labelpad=10)
     plt.ylabel(r'Frequency (n.ha$^{-1}$.m$^{2}$)', labelpad=10)
     plt.xticks([2,5,10,20,50,100,200,500], ['2','5','10','20','50','100','200','500'])
     # plt.yticks([0.01, 0.1, 1], [ '0.01', '0.1', '1'])
+
+    plt.axvspan(1.7, valores[i], alpha=0.2, color='gray')
     
     # plt.yticks([0.001, 0.01, 0.1, 1], ['0.001', '0.01', '0.1', '1'])
     # plt.ticklabel_format(axis='y', style='sci')
 
 
     #Proportion y
-    plt.axvline(x=valores[i], ymin=0.0001, ls='--', color='k', linewidth=0.5, zorder=1) #ymax=valoresylinha[i]
+    # plt.axvline(x=valores[i], ymin=0.0001, ls='--', color='k', linewidth=0.5, zorder=1) #ymax=valoresylinha[i]
 
 
     plt.savefig('../Exit/main_gap_size_fits_log'+nomes[i]+'.png', dpi=300, bbox_inches='tight')
